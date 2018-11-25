@@ -1,0 +1,53 @@
+<h1>Creador de color</h1>
+
+<div class="container">
+  <input type="text" value="75" class="dial" data-max="255" id="red" data-fgColor="red">
+  <input type="text" value="75" class="dial" data-max="255" id="green" data-fgColor="green">
+  <input type="text" value="75" class="dial" data-max="255" id="blue" data-fgColor="blue">
+</div>
+
+<h1 id="rgbtext">Color RGB</h1>
+<div  class="container" id="box" style="height: 500px; width: 500px"></div>
+<!-- <button type="button" name="button" onclick="output()" class="btn btn-primary">Output red</button>
+<button type="button" name="button" onclick="output2()" class="btn btn-primary">Output green</button>
+<button type="button" name="button" onclick="output3()" class="btn btn-primary">Output blue</button> -->
+
+<script>
+    $(document).on('turbolinks:load', function() {
+        $(".dial").knob({
+          'change': function(){
+          var rgb ='rgb(' + $('#red').val() + ',' + $('#green').val() + ',' + $('#blue').val() + ')';
+          var rgbname = 'RGB = (' + $('#red').val() + ', ' + $('#green').val() + ', ' + $('#blue').val() + ')';
+          $('#box').css('background-color',rgb);
+          $('#rgbtext').text(rgbname);
+          }
+        });
+    });
+
+    // var red = $("#red");
+    // console.log(red.val());
+    //
+    // var output = function(){
+    //   var red = $("#red");
+    //   text = red.val();
+    //   alert(text);
+    // }
+    // var output2 = function(){
+    //   var green = $("#green");
+    //   text = green.val();
+    //   alert(text);
+    // }
+    // var output3 = function(){
+    //   var blue = $("#blue");
+    //   text = blue.val();
+    //   alert(text);
+    // }
+    //
+    // $( "#green" ).knob({
+    //     'change' : function (v) {
+    //       var green = $("#green");
+    //       text = green.val();
+    //       console.log(text);
+    //     }
+    // });
+</script>
